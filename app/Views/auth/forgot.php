@@ -1,0 +1,59 @@
+ <?= $this->extend('auth/templates/index');?>
+ <?= $this->section('auth-content');?>
+
+    <div class="authentication-theme auth-style_1">
+      <div class="row">
+        <div class="col-12 logo-section">
+          <a href="/" class="logo">
+            <img src="/assets/images/logo.png" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5 col-md-7 col-sm-9 col-11 mx-auto">
+          <div class="grid pb-5 input-rounded">
+            <div class="grid-body">
+      		  <h1 class="text-center pb-5">SIMAT <?=lang('Auth.forgotPassword')?></h1>
+      		  
+              <div class="row">
+                <div class="col-lg-7 col-md-8 col-sm-9 col-12 mx-auto form-wrapper">
+                    <?= view('Myth\Auth\Views\_message_block') ?>
+
+                    <p class="container mb-4" style="font-size:9px"><?=lang('Auth.enterEmailForInstructions')?></p>
+
+                    <form action="<?= route_to('forgot') ?>" method="post">
+                        <?= csrf_field() ?>
+						
+						
+				                
+                
+                
+                    <div class="form-group input-rounded">
+                       <input type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>"
+                                   name="email" aria-describedby="emailHelp" placeholder="<?=lang('Auth.email')?>">
+                            <div class="invalid-feedback">
+                                <?= session('errors.email') ?>
+                            </div>
+                    </div>
+                    
+                
+                
+                    <button type="submit" class="btn btn-warning btn-block"> <?=lang('Auth.sendInstructions')?> </button>
+                  </form>
+                  <div class="form-link">
+                  	
+                <p><?=lang('Auth.alreadyRegistered')?> <a href="<?= route_to('login') ?>"><?=lang('Auth.signIn')?></a></p>
+               
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="auth_footer ">
+        <p class="text-muted text-center">SIMAT APP 2021</p>
+      </div>
+    </div>
+    
+<?= $this->endSection();?>
